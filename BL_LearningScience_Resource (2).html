@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science of Learning — Boys' Latin Middle School</title>
+<style>
+  @font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('/tmp/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400 700;
+  }
+  @font-face {
+    font-family: 'SourceSans3';
+    src: url('/tmp/SourceSans3-Regular.ttf') format('truetype');
+    font-weight: 300 600;
+  }
+
+  :root {
+    --maroon:        #6b1226;
+    --maroon-dark:   #4a0c1a;
+    --maroon-mid:    #8a1a30;
+    --maroon-tint:   #f9f0f2;
+    --maroon-pale:   #fdf7f8;
+    --gold:          #c9961e;
+    --gold-lt:       #e8c060;
+    --gold-pale:     #fdf3dc;
+    --white:         #ffffff;
+    --page-bg:       #faf9f8;
+    --gray-bg:       #f3f2f1;
+    --rule:          #e4dede;
+    --text:          #1c1010;
+    --text-mid:      #3a2525;
+    --text-light:    #5e4848;
+    --green:         #2a6045;
+    --green-light:   #eaf5ef;
+    --green-border:  #b8ddc8;
+    --red-light:     #fdf0f0;
+    --red-border:    #f5c8c8;
+    --teal:          #1a5c6e;
+    --teal-light:    #e3f2f5;
+    --teal-border:   #a8d8e3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'SourceSans3', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.72;
+    font-size: 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ═══ HEADER ═══ */
+  .header { background: var(--maroon-dark); color: white; }
+
+  .header-top-bar {
+    background: var(--maroon);
+    padding: 0.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .school-name {
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  .school-url { font-size: 11px; color: var(--gold-lt); }
+
+  .header-body {
+    padding: 2.4rem 2.5rem 2.2rem;
+    position: relative;
+  }
+  .header-body::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 45%, var(--gold) 100%);
+  }
+  .eyebrow {
+    display: flex; align-items: center; gap: 9px; margin-bottom: 1rem;
+  }
+  .eyebrow-line { width: 28px; height: 2px; background: var(--gold); flex-shrink: 0; }
+  .eyebrow-text {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt);
+  }
+  .header h1 {
+    font-family: 'PlayfairDisplay', Georgia, serif;
+    font-size: 2.4rem; font-weight: 700;
+    line-height: 1.18; color: #fff; margin-bottom: 0.8rem;
+  }
+  .header h1 em { font-style: normal; color: var(--gold-lt); }
+  .header-desc {
+    font-size: 1rem; color: rgba(255,255,255,0.72);
+    font-weight: 300; max-width: 620px;
+    line-height: 1.65; margin-bottom: 1.75rem;
+  }
+  .header-meta {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .meta-lbl {
+    font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.38);
+  }
+  .meta-val { font-size: 12.5px; color: rgba(255,255,255,0.82); }
+
+  /* ═══ BODY ═══ */
+  .body-wrap { padding: 2.2rem 2.5rem 3.5rem; }
+
+  /* ═══ INTRO NOTE ═══ */
+  .intro-note {
+    background: var(--white);
+    border-left: 4px solid var(--maroon);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 2.2rem;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    border-top: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .intro-note strong { color: var(--text); font-weight: 600; }
+
+  /* ═══ SECTION HEADINGS ═══ */
+  .sec-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--maroon); display: block; margin-bottom: 4px;
+  }
+  .sec-title {
+    font-family: 'PlayfairDisplay', Georgia, serif;
+    font-size: 1.35rem; font-weight: 600;
+    color: var(--maroon-dark);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1.5px solid var(--rule);
+  }
+  .sec-gap { margin-top: 2rem; margin-bottom: 1.3rem; }
+
+  /* ═══ BL PANEL ═══ */
+  .bl-panel {
+    background: var(--maroon);
+    border-radius: 9px; padding: 1.6rem 1.75rem; margin-bottom: 2rem;
+  }
+  .bl-panel .sec-label { color: var(--gold-lt); }
+  .bl-panel .sec-title { color: #fff; border-bottom-color: rgba(255,255,255,0.15); }
+  .bl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .bl-item {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px; padding: 0.95rem 1rem;
+  }
+  .bl-item-title {
+    font-size: 13.5px; font-weight: 600;
+    color: var(--gold-lt); margin-bottom: 5px;
+  }
+  .bl-item-text {
+    font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.58;
+  }
+
+  /* ═══ MYTH BOX ═══ */
+  .myth-wrap {
+    background: var(--white); border-radius: 9px;
+    padding: 1.3rem; margin-bottom: 2rem; border: 1px solid var(--rule);
+  }
+  .myth-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .myth-col { padding: 0.95rem; border-radius: 7px; }
+  .myth-col.no  { background: var(--red-light);  border: 1px solid var(--red-border); }
+  .myth-col.yes { background: var(--green-light); border: 1px solid var(--green-border); }
+  .myth-col-hdr {
+    font-size: 10.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.7rem;
+  }
+  .myth-col.no  .myth-col-hdr { color: #8b2020; }
+  .myth-col.yes .myth-col-hdr { color: var(--green); }
+  .myth-col ul  { list-style: none; padding: 0; }
+  .myth-col li {
+    font-size: 13.5px; color: var(--text);
+    padding: 5px 0 5px 18px; position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05); line-height: 1.5;
+  }
+  .myth-col li:last-child { border-bottom: none; }
+  .myth-col.no  li::before { content:'✗'; position:absolute; left:0; top:5px; color:#c03030; font-weight:700; font-size:12px; }
+  .myth-col.yes li::before { content:'✓'; position:absolute; left:0; top:5px; color:var(--green); font-weight:700; font-size:12px; }
+  .myth-note {
+    margin-top: 1rem; padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--text-light);
+    font-style: italic; line-height: 1.62;
+  }
+
+  /* ═══ COGNITIVE STRIP ═══ */
+  .cog-row {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0.85rem; margin-bottom: 2rem;
+  }
+  .cog-card {
+    background: var(--white); border-radius: 9px;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--maroon);
+    padding: 1.1rem;
+  }
+  .cog-title { font-size: 14px; font-weight: 600; color: var(--maroon); margin-bottom: 6px; }
+  .cog-body  { font-size: 13px; color: var(--text-light); line-height: 1.62; }
+
+  /* ═══ STRATEGY CARDS ═══ */
+  .strat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.85rem; margin-bottom: 2rem;
+  }
+  .strat-card {
+    background: var(--white); border-radius: 9px;
+    border: 1px solid var(--rule); padding: 1.1rem;
+  }
+  .strat-card.hi {
+    border-color: var(--maroon-mid); background: var(--maroon-pale);
+  }
+  .strat-badge {
+    display: inline-block;
+    background: var(--maroon-dark); color: var(--gold-lt);
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 2px 8px; border-radius: 3px; margin-bottom: 7px;
+  }
+  .strat-name {
+    font-family: 'PlayfairDisplay', Georgia, serif;
+    font-size: 1.08rem; font-weight: 600;
+    color: var(--maroon-dark); margin-bottom: 7px;
+  }
+  .strat-card.hi .strat-name { color: var(--maroon); }
+  .strat-blurb {
+    font-size: 13.5px; color: var(--text-mid);
+    line-height: 1.62; margin-bottom: 10px;
+  }
+  .strat-bl {
+    background: var(--gray-bg); border-radius: 6px;
+    padding: 8px 11px; font-size: 13px;
+    color: var(--text); line-height: 1.58;
+  }
+  .strat-bl-lbl {
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.09em; color: var(--maroon); display: block; margin-bottom: 3px;
+  }
+
+  /* ═══ ACTION STEPS ═══ */
+  .actions-wrap {
+    background: var(--white); border-radius: 9px;
+    border: 1px solid var(--rule);
+    padding: 1.3rem; margin-bottom: 2rem;
+  }
+  .action-row {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 0.85rem 0; border-bottom: 1px solid #f0e8e8;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .tag {
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 9px; border-radius: 4px;
+    white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+  }
+  .tag.staff    { background: var(--teal-light);  color: var(--teal);        border: 1px solid var(--teal-border); }
+  .tag.students { background: var(--maroon-tint); color: var(--maroon);      border: 1px solid #e0b0bc; }
+  .tag.both     { background: var(--gray-bg);     color: var(--maroon-dark); border: 1px solid #dbd0d0; }
+  .action-body  { font-size: 14px; color: var(--text); line-height: 1.65; }
+  .action-body strong { color: var(--maroon-dark); font-weight: 600; }
+
+  /* ═══ RESOURCES ═══ */
+  .res-wrap {
+    background: var(--gold-pale); border-radius: 9px;
+    border: 1px solid #e8cc80;
+    padding: 1.3rem; margin-bottom: 2rem;
+  }
+  .res-wrap .sec-label { color: #7a5000; }
+  .res-wrap .sec-title { color: var(--maroon-dark); border-bottom-color: rgba(107,18,38,0.12); }
+  .res-intro { font-size: 14px; color: var(--text-light); margin-bottom: 0.9rem; line-height: 1.6; }
+  .res-list  { list-style: none; padding: 0; }
+  .res-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+    font-size: 14px;
+  }
+  .res-list li:last-child { border-bottom: none; }
+  .res-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--maroon); margin-top: 7px; flex-shrink: 0;
+  }
+  .res-title { color: var(--maroon-dark); font-weight: 600; }
+  .res-desc  { color: var(--text-light); font-size: 13px; display: block; margin-top: 2px; line-height: 1.55; }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    background: var(--maroon-dark);
+    border-top: 3px solid var(--gold);
+    color: rgba(255,255,255,0.55);
+    text-align: center; padding: 1.3rem;
+    font-size: 12px; line-height: 1.8;
+  }
+  .footer strong { color: rgba(255,255,255,0.9); }
+  .footer .sep { margin: 0 0.6rem; opacity: 0.3; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top-bar">
+    <span class="school-name">Boys' Latin School of Maryland</span>
+    <span class="school-url">boyslatinmd.com</span>
+  </div>
+  <div class="header-body">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Resource for Middle School Leadership &amp; Faculty</span>
+    </div>
+    <h1>Science of Learning<br><em>at Boys' Latin</em></h1>
+    <p class="header-desc">How research from cognitive psychology can strengthen teaching and study habits for BL Middle School boys — grounded in <em>Understanding How We Learn</em> by Weinstein, Sumeracki &amp; Caviglioli.</p>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-lbl">Source Book</span>
+        <span class="meta-val">Understanding How We Learn: A Visual Guide (Routledge, 2019)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-lbl">Free Resources</span>
+        <span class="meta-val">learningscientists.org/downloadable-materials</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-lbl">Division</span>
+        <span class="meta-val">Middle School — Grades 6–8</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <div class="intro-note">
+    <strong>A note for Henry Melcher, Middle School Principal:</strong> This resource distills the highest-impact findings from Weinstein &amp; Sumeracki's research on how learning actually works — and connects them directly to what makes BL's Middle School distinctive: small classes, skill-based teaching, character development, and a faculty that genuinely knows every student. These are not prescriptions — they're evidence-backed tools your team can selectively adopt and adapt.
+  </div>
+
+  <!-- BL Context -->
+  <div class="bl-panel">
+    <span class="sec-label">Boys' Latin context</span>
+    <div class="sec-title">Why this fits BL Middle School</div>
+    <div class="bl-grid">
+      <div class="bl-item">
+        <div class="bl-item-title">13-student average class size</div>
+        <div class="bl-item-text">Small classes mean teachers can implement personalized retrieval checks, tailored elaboration prompts, and spaced review — things nearly impossible at scale but very doable at BL.</div>
+      </div>
+      <div class="bl-item">
+        <div class="bl-item-title">Skill-based curriculum design</div>
+        <div class="bl-item-text">BL's curriculum is built around creativity, collaboration, and problem-solving — which aligns directly with what the science shows deepens retention and transfer.</div>
+      </div>
+      <div class="bl-item">
+        <div class="bl-item-title">All-boys developmental context</div>
+        <div class="bl-item-text">Middle school boys benefit enormously from learning that struggle during practice is a sign of learning, not failure. De-stigmatizing effortful study is especially powerful at this age.</div>
+      </div>
+      <div class="bl-item">
+        <div class="bl-item-title">STEAM + Innovation Program</div>
+        <div class="bl-item-text">BL's hands-on, tinkering-based innovation work is a natural home for concrete examples and dual coding — boys are already building and sketching as a mode of thinking.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Myths -->
+  <span class="sec-label">What the research actually says</span>
+  <div class="sec-title">Common myths that cost students time</div>
+  <div class="myth-wrap">
+    <div class="myth-cols">
+      <div class="myth-col no">
+        <div class="myth-col-hdr">What feels like studying</div>
+        <ul>
+          <li>Re-reading notes and textbooks</li>
+          <li>Highlighting everything important</li>
+          <li>Studying one subject for a long block</li>
+          <li>Matching instruction to "learning styles"</li>
+          <li>Cramming the night before a test</li>
+        </ul>
+      </div>
+      <div class="myth-col yes">
+        <div class="myth-col-hdr">What actually builds memory</div>
+        <ul>
+          <li>Self-testing from memory (blank recall, flashcards)</li>
+          <li>Explaining concepts in your own words</li>
+          <li>Spreading study across multiple sessions</li>
+          <li>Mixing topics within a study session</li>
+          <li>Reviewing material well before the test</li>
+        </ul>
+      </div>
+    </div>
+    <div class="myth-note">Key finding: Students who re-read feel more confident going into tests — but those who practice retrieving information from memory consistently outperform them. The discomfort of testing yourself is a signal that learning is happening.</div>
+  </div>
+
+  <!-- Cognitive Foundations -->
+  <div class="sec-gap">
+    <span class="sec-label">Cognitive foundations</span>
+    <div class="sec-title">Three things every BL teacher should know about how boys learn</div>
+  </div>
+  <div class="cog-row">
+    <div class="cog-card">
+      <div class="cog-title">Attention is limited &amp; selective</div>
+      <div class="cog-body">Boys can only focus on a few things at once. Reducing extraneous noise — cluttered slides, competing audio and text — directly frees up mental bandwidth for learning. Less is more in instructional design.</div>
+    </div>
+    <div class="cog-card">
+      <div class="cog-title">Working memory has a ceiling</div>
+      <div class="cog-body">Active thinking happens in working memory, which holds only a small amount at a time. Chunking material and connecting new content to prior knowledge lowers the load and improves retention.</div>
+    </div>
+    <div class="cog-card">
+      <div class="cog-title">Memory is reconstructive</div>
+      <div class="cog-body">Students don't "record" information like a camera — each recall is a reconstruction. This is why practice retrieval, not re-exposure, is what strengthens memory over time.</div>
+    </div>
+  </div>
+
+  <!-- Six Strategies -->
+  <div class="sec-gap">
+    <span class="sec-label">The six evidence-backed strategies</span>
+    <div class="sec-title">What to prioritize — and how it looks at BL</div>
+  </div>
+  <div class="strat-grid">
+
+    <div class="strat-card hi">
+      <span class="strat-badge">★ Highest impact</span>
+      <div class="strat-name">Retrieval practice</div>
+      <div class="strat-blurb">Having students pull information from memory — rather than re-reading — is the most evidence-backed strategy for durable learning. Low-stakes quizzes, exit tickets, and blank-page recall all qualify.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        Start each class with a 3-question warm-up on yesterday's material. No grades — just practice. In Language Lab, replace review reading with write-what-you-remember exercises.
+      </div>
+    </div>
+
+    <div class="strat-card hi">
+      <span class="strat-badge">★ Highest impact</span>
+      <div class="strat-name">Spaced practice</div>
+      <div class="strat-blurb">Reviewing material across multiple sessions rather than one long block dramatically improves long-term retention. The "spacing effect" is one of the most replicated findings in cognitive psychology.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        Build spaced review into unit planning — return to Week 1 content in Week 3. Math teachers already sequence this well; English and History have room to formalize it.
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-name">Elaboration</div>
+      <div class="strat-blurb">Asking "why does this work?" and "how does it connect to what you know?" builds richer mental models. "Explain it in your own words" is one of the most powerful teacher moves.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        History and English are natural homes. Prompt: "Write 3 sentences connecting today's reading to something from your own life or something we covered before."
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-name">Interleaving</div>
+      <div class="strat-blurb">Mixing different problem types or topics within a session builds the ability to identify which strategy to use — a key skill for tests and real-world application.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        Math is the most natural fit. Instead of 20 identical problems, assign mixed problem sets drawing on prior units. Feels harder — and works better.
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-name">Concrete examples</div>
+      <div class="strat-blurb">Abstract concepts stick when anchored with multiple specific, varied examples — especially those tied to students' real experience. Varied examples enable genuine generalization.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        Science teachers already do this through lab-based work. Ask students to generate their own examples — this combines elaboration and concrete examples in one move.
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-name">Dual coding</div>
+      <div class="strat-blurb">Combining verbal explanations with complementary visuals that encode the same information spatially improves retention. Student-generated drawings are especially powerful.</div>
+      <div class="strat-bl">
+        <span class="strat-bl-lbl">At BL Middle School</span>
+        STEAM and Innovation Program naturally support this. Ask students in any subject to sketch a concept before writing — this activates a second memory pathway.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Action Steps -->
+  <div class="sec-gap">
+    <span class="sec-label">Practical next steps</span>
+    <div class="sec-title">What staff and students can do right now</div>
+  </div>
+  <div class="actions-wrap">
+    <div class="action-row">
+      <span class="tag staff">Staff</span>
+      <div class="action-body"><strong>Add a 5-minute retrieval warm-up</strong> to the start of every class — no grading, just practice. Three questions from last week's material. Students write from memory before anything else is shown.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag staff">Staff</span>
+      <div class="action-body"><strong>Audit your unit plans for spacing.</strong> When do students see Week 1 content again? If the answer is "only on the final," there's a spaced practice gap worth addressing.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag staff">Staff</span>
+      <div class="action-body"><strong>Replace re-reading homework with retrieval homework.</strong> Instead of "re-read pages 40–55," assign "write everything you remember from pages 40–55 without looking." Same content, far better outcome.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag students">Students</span>
+      <div class="action-body"><strong>Teach the closed-book recall method.</strong> After reading any section, close the book and write what you remember. Check after. This feels harder than highlighting — that's the point. That discomfort is learning.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag students">Students</span>
+      <div class="action-body"><strong>Reframe how boys understand "hard."</strong> When practice tests feel difficult, that is the strategy working — not a sign they don't know the material. This mindset shift is huge for middle schoolers.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag both">Both</span>
+      <div class="action-body"><strong>Post the six strategy posters</strong> (free from learningscientists.org) in classrooms and advisor spaces. When teachers and students share the same vocabulary for study strategies, the whole culture shifts.</div>
+    </div>
+    <div class="action-row">
+      <span class="tag both">Both</span>
+      <div class="action-body"><strong>Address the "learning styles" myth directly.</strong> Many BL boys have been told they are visual or verbal learners. The research shows no evidence this matters — and acting on it can actually narrow how boys approach material.</div>
+    </div>
+  </div>
+
+  <!-- Resources -->
+  <div class="res-wrap">
+    <span class="sec-label">Free from The Learning Scientists</span>
+    <div class="sec-title">Ready-to-use classroom materials</div>
+    <p class="res-intro">All materials are free to download, print, and share for educational use. Attribution requested; commercial use not permitted.</p>
+    <ul class="res-list">
+      <li>
+        <div class="res-dot"></div>
+        <div>
+          <span class="res-title">learningscientists.org/posters</span>
+          <span class="res-desc">Six Strategy Posters (English + multiple languages) — one per strategy, ready to print for classroom walls.</span>
+        </div>
+      </li>
+      <li>
+        <div class="res-dot"></div>
+        <div>
+          <span class="res-title">learningscientists.org/powerpoint-slides</span>
+          <span class="res-desc">Slides for presenting the strategies to students — ready-made deck for advisory, homeroom, or a study skills session.</span>
+        </div>
+      </li>
+      <li>
+        <div class="res-dot"></div>
+        <div>
+          <span class="res-title">learningscientists.org/bookmarks</span>
+          <span class="res-desc">Printable bookmarks with strategy prompts — students keep in planners for concrete guidance while studying.</span>
+        </div>
+      </li>
+      <li>
+        <div class="res-dot"></div>
+        <div>
+          <span class="res-title">learningscientists.org/blog</span>
+          <span class="res-desc">Searchable blog — practical posts on applying cognitive science in specific subjects and grade levels.</span>
+        </div>
+      </li>
+      <li>
+        <div class="res-dot"></div>
+        <div>
+          <span class="res-title">Understanding How We Learn (Routledge) — bulk discounts for 10+ copies</span>
+          <span class="res-desc">Available at a discount for schools ordering 10+ copies — worth considering for a faculty book study.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Prepared for Boys' Latin School of Maryland — Middle School</strong><br>
+  Based on <em>Understanding How We Learn: A Visual Guide</em> by Weinstein, Sumeracki &amp; Caviglioli (Routledge, 2019)
+  <span class="sep">·</span>
+  learningscientists.org
+  <span class="sep">·</span>
+  boyslatinmd.com/academics/middleschool
+</div>
+
+</body>
+</html>
